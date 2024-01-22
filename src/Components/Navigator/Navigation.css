@@ -1,0 +1,53 @@
+.Navigation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.Navigation ul {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    padding: 10px;
+    gap: 10px;
+}
+
+.Navigation .mobile {
+    flex-direction: column;
+}
+
+.Navigation .desktop {
+    display: none;
+}
+
+.Navigation a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 400;
+    transition: all 0.3s ease-in-out;
+
+}
+
+.btn-link {
+    background-color: #205BF1;
+    padding: 20px;
+    font-weight: 500;
+}
+
+@media screen and (min-width: 768px) {
+    .Navigation .desktop {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .Navigation .mobile {
+        display: none;
+    }
+    
+}
