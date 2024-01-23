@@ -61,7 +61,7 @@ const ModalView = ({ afterOpenModal, closeModal, modalIsOpen, email, setEmail, h
               <AddTeam email={email} setEmail={email}/>
             </div>
             <p>Invite more</p>
-            <button className="btn">Done</button>
+            <button className="btn" onClick={()=>{closeModal()}}>Done</button>
           </div>
         )}
       </div>
