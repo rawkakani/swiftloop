@@ -9,7 +9,7 @@ const Navigation = ({openModal}) => {
       <div className="mobile2">
         <FaAlignJustify />
       </div>
-      <ul className='nav mobile none'>
+      <ul className='nav mobile' id='none'>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/'>Features</Link></li>
         <li><Link to='/'>Pricing</Link></li>
