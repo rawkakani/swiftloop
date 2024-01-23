@@ -17,3 +17,19 @@ createUserWithEmailAndPassword(auth, email, password)
     // ..
   });
 }
+
+export const signIn = async (email, password, setError, setEmail, setIsAccount) => {
+  signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    setEmail('');
+    setIsAccount(true);
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    setError(errorMessage);
+  });
+}
