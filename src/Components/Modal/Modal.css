@@ -62,8 +62,8 @@
 
 @media screen and (min-width: 768px) {
     .ReactModal__Content--after-open {
-        width: 70% !important;
-        height: 70% !important;
-        inset: 15% !important;
+        width: 80% !important;
+        height: 85% !important;
+        inset: 7.5% 10% !important;
     }
 }
