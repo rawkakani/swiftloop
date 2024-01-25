@@ -4,6 +4,7 @@
     align-items: center;
     gap: 25px;
     height: 100%;
+    width: 100%;
 }
 
 .modal-body {
@@ -62,8 +63,8 @@
 
 @media screen and (min-width: 768px) {
     .ReactModal__Content--after-open {
-        width: 80% !important;
-        height: 85% !important;
-        inset: 7.5% 10% !important;
+        width: 70% !important;
+        height: 70% !important;
+        inset: 15% !important;
     }
 }

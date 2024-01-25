@@ -102,6 +102,8 @@ const ModalView = ({
               className="btn"
               onClick={() => {
                 closeModal();
+                setTeamName("");
+                setEmail("");
               }}
             >
               Done
