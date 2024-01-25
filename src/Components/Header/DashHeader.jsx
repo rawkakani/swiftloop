@@ -7,6 +7,7 @@ const DashHeader = () => {
         loading="lazy"
         src="https://cdn.builder.io/api/v1/image/assets/TEMP/8f7db48bd3558d7280078ed72f9286f51e55c50d40b48ab4881396d24b66aeaf?"
         className="img-7"
+        alt = ""
       />
       <div className="div-20">
         <div className="div-21">

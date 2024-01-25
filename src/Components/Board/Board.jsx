@@ -13,11 +13,13 @@ const Board = () => {
                   loading="lazy"
                   src="https://cdn.builder.io/api/v1/image/assets/TEMP/397670acc274a35abbdce1c95cebab78fccac6b31dfc024632ebf3788e687dd0?"
                   className="img-13"
+                  alt = ""
                 />
                 <img
                   loading="lazy"
                   src="https://cdn.builder.io/api/v1/image/assets/TEMP/248d9e24c5c026a39aad4f37f34b1ec6c58a28c1263e3ea9bda2c06c438c8a4d?"
                   className="img-14"
+                  alt = ""
                 />
               </div>
             </div>
@@ -30,6 +32,7 @@ const Board = () => {
                       loading="lazy"
                       src="https://cdn.builder.io/api/v1/image/assets/TEMP/687f48c4aabd60ebf5bb8710157b9991706d8c2bd1773f35197912770360223a?"
                       className="img-15"
+                      alt = ""
                     />
                   </div>
                 </div>
@@ -37,6 +40,7 @@ const Board = () => {
                   loading="lazy"
                   srcSet="https://images.unsplash.com/photo-1543157145-f78c636d023d?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   className="img-16"
+                  alt = ""
                 />
                 <div className="div-53">
                   <div className="div-54">
@@ -44,6 +48,7 @@ const Board = () => {
                       loading="lazy"
                       src="https://cdn.builder.io/api/v1/image/assets/TEMP/59a87043a64c1a19fc05196705727b4165ed40128e2196c7836a97d72fbb08f7?"
                       className="img-17"
+                      alt = ""
                     />
                     <div className="div-55">21/03/22</div>
                   </div>
@@ -53,6 +58,7 @@ const Board = () => {
                   <img
                     loading="lazy"
                     srcSet="..."
+                    alt = ""
                     className="img-18"
                   />
                   <div className="div-58">
@@ -60,12 +66,14 @@ const Board = () => {
                       loading="lazy"
                       src="https://cdn.builder.io/api/v1/image/assets/TEMP/8e08ac811a5ff415fec8d93ec4f3aa879b040c1f410e139bdb743534532af8b5?"
                       className="img-19"
+                      alt = ""
                     />
                     <div className="div-59">12 comments</div>
                     <img
                       loading="lazy"
                       src="https://cdn.builder.io/api/v1/image/assets/TEMP/6ff1645f58ebf13109177cd47f8cab10cc2e685346d7308b162277b2c632d668?"
                       className="img-20"
+                      alt = ""
                     />
                     <div className="div-60">0 files</div>
                   </div>
@@ -81,6 +89,7 @@ const Board = () => {
                       loading="lazy"
                       src="https://cdn.builder.io/api/v1/image/assets/TEMP/687f48c4aabd60ebf5bb8710157b9991706d8c2bd1773f35197912770360223a?"
                       className="img-21"
+                      alt = ""
                     />
                   </div>
                 </div>
@@ -94,6 +103,7 @@ const Board = () => {
                       loading="lazy"
                       src="https://cdn.builder.io/api/v1/image/assets/TEMP/0cf183460e563addb706582001b3d457613eec1c0f04b9605da7b761288a9c65?"
                       className="img-22"
+                      alt = ""
                     />
                     <div className="div-68">21/03/22</div>
                   </div>
@@ -105,12 +115,14 @@ const Board = () => {
                       loading="lazy"
                       src="https://cdn.builder.io/api/v1/image/assets/TEMP/8e08ac811a5ff415fec8d93ec4f3aa879b040c1f410e139bdb743534532af8b5?"
                       className="img-23"
+                      alt = ""
                     />
                     <div className="div-72">12 comments</div>
                     <img
                       loading="lazy"
                       src="https://cdn.builder.io/api/v1/image/assets/TEMP/6ff1645f58ebf13109177cd47f8cab10cc2e685346d7308b162277b2c632d668?"
                       className="img-24"
+                      alt = ""
                     />
                     <div className="div-73">0 files</div>
                   </div>
@@ -118,6 +130,7 @@ const Board = () => {
                     loading="lazy"
                     srcSet="https://images.unsplash.com/photo-1543157145-f78c636d023d?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     className="img-25"
+                    alt = ""
                   />
                 </div>
               </div>
@@ -132,12 +145,14 @@ const Board = () => {
                       loading="lazy"
                       src="https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                       className="img-26"
+                      alt = ""
                     />
                   </div>
                 </div>
                 <img
                   loading="lazy"
                   srcSet="..."
+                  alt = ""
                   className="img-27"
                 />
               </div>
@@ -153,11 +168,13 @@ const Board = () => {
                   loading="lazy"
                   src="https://cdn.builder.io/api/v1/image/assets/TEMP/397670acc274a35abbdce1c95cebab78fccac6b31dfc024632ebf3788e687dd0?"
                   className="img-28"
+                  alt = ""
                 />
                 <img
                   loading="lazy"
                   src="https://cdn.builder.io/api/v1/image/assets/TEMP/248d9e24c5c026a39aad4f37f34b1ec6c58a28c1263e3ea9bda2c06c438c8a4d?"
                   className="img-29"
+                  alt = ""
                 />
               </div>
             </div>
@@ -171,6 +188,7 @@ const Board = () => {
                     loading="lazy"
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/687f48c4aabd60ebf5bb8710157b9991706d8c2bd1773f35197912770360223a?"
                     className="img-30"
+                    alt = ""
                   />
                 </div>
               </div>
@@ -178,6 +196,7 @@ const Board = () => {
                 loading="lazy"
                 srcSet="https://images.unsplash.com/photo-1543157145-f78c636d023d?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 className="img-31"
+                alt = ""
               />
               <div className="div-88">
                 <div className="div-89">
@@ -185,6 +204,7 @@ const Board = () => {
                     loading="lazy"
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/59a87043a64c1a19fc05196705727b4165ed40128e2196c7836a97d72fbb08f7?"
                     className="img-32"
+                    alt = ""
                   />
                   <div className="div-90">21/03/22</div>
                 </div>
@@ -194,6 +214,7 @@ const Board = () => {
                 <img
                   loading="lazy"
                   srcSet="..."
+                  alt = ""
                   className="img-33"
                 />
                 <div className="div-93">
@@ -201,12 +222,14 @@ const Board = () => {
                     loading="lazy"
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/8e08ac811a5ff415fec8d93ec4f3aa879b040c1f410e139bdb743534532af8b5?"
                     className="img-34"
+                    alt = ""
                   />
                   <div className="div-94">12 comments</div>
                   <img
                     loading="lazy"
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/6ff1645f58ebf13109177cd47f8cab10cc2e685346d7308b162277b2c632d668?"
                     className="img-35"
+                    alt = ""
                   />
                   <div className="div-95">0 files</div>
                 </div>
@@ -222,6 +245,7 @@ const Board = () => {
                     loading="lazy"
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/687f48c4aabd60ebf5bb8710157b9991706d8c2bd1773f35197912770360223a?"
                     className="img-36"
+                    alt = ""
                   />
                 </div>
               </div>
@@ -235,6 +259,7 @@ const Board = () => {
                     loading="lazy"
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/0cf183460e563addb706582001b3d457613eec1c0f04b9605da7b761288a9c65?"
                     className="img-37"
+                    alt = ""
                   />
                   <div className="div-103">21/03/22</div>
                 </div>
@@ -246,18 +271,21 @@ const Board = () => {
                     loading="lazy"
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/8e08ac811a5ff415fec8d93ec4f3aa879b040c1f410e139bdb743534532af8b5?"
                     className="img-38"
+                    alt = ""
                   />
                   <div className="div-107">12 comments</div>
                   <img
                     loading="lazy"
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/6ff1645f58ebf13109177cd47f8cab10cc2e685346d7308b162277b2c632d668?"
                     className="img-39"
+                    alt = ""
                   />
                   <div className="div-108">0 files</div>
                 </div>
                 <img
                   loading="lazy"
                   srcSet="..."
+                  alt = ""
                   className="img-40"
                 />
               </div>
@@ -266,6 +294,7 @@ const Board = () => {
               <img
                 loading="lazy"
                 srcSet="..."
+                alt = ""
                 className="img-41"
               />
             </div>
@@ -280,11 +309,13 @@ const Board = () => {
                   loading="lazy"
                   src="https://cdn.builder.io/api/v1/image/assets/TEMP/397670acc274a35abbdce1c95cebab78fccac6b31dfc024632ebf3788e687dd0?"
                   className="img-42"
+                  alt = ""
                 />
                 <img
                   loading="lazy"
                   src="https://cdn.builder.io/api/v1/image/assets/TEMP/248d9e24c5c026a39aad4f37f34b1ec6c58a28c1263e3ea9bda2c06c438c8a4d?"
                   className="img-43"
+                  alt = ""
                 />
               </div>
             </div>
@@ -298,6 +329,7 @@ const Board = () => {
                     loading="lazy"
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/687f48c4aabd60ebf5bb8710157b9991706d8c2bd1773f35197912770360223a?"
                     className="img-44"
+                    alt = ""
                   />
                 </div>
               </div>
@@ -305,6 +337,7 @@ const Board = () => {
                 loading="lazy"
                 srcSet="https://images.unsplash.com/photo-1543157145-f78c636d023d?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 className="img-45"
+                alt = ""
               />
               <div className="div-118">
                 <div className="div-119">
@@ -312,6 +345,7 @@ const Board = () => {
                     loading="lazy"
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/59a87043a64c1a19fc05196705727b4165ed40128e2196c7836a97d72fbb08f7?"
                     className="img-46"
+                    alt = ""
                   />
                   <div className="div-120">21/03/22</div>
                 </div>
@@ -321,6 +355,7 @@ const Board = () => {
                 <img
                   loading="lazy"
                   srcSet="..."
+                  alt = ""
                   className="img-47"
                 />
                 <div className="div-123">
@@ -328,12 +363,14 @@ const Board = () => {
                     loading="lazy"
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/8e08ac811a5ff415fec8d93ec4f3aa879b040c1f410e139bdb743534532af8b5?"
                     className="img-48"
+                    alt = ""
                   />
                   <div className="div-124">12 comments</div>
                   <img
                     loading="lazy"
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/6ff1645f58ebf13109177cd47f8cab10cc2e685346d7308b162277b2c632d668?"
                     className="img-49"
+                    alt = ""
                   />
                   <div className="div-125">0 files</div>
                 </div>
@@ -349,6 +386,7 @@ const Board = () => {
                     loading="lazy"
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/687f48c4aabd60ebf5bb8710157b9991706d8c2bd1773f35197912770360223a?"
                     className="img-50"
+                    alt = ""
                   />
                 </div>
               </div>
@@ -362,6 +400,7 @@ const Board = () => {
                     loading="lazy"
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/0cf183460e563addb706582001b3d457613eec1c0f04b9605da7b761288a9c65?"
                     className="img-51"
+                    alt = ""
                   />
                   <div className="div-133">21/03/22</div>
                 </div>
@@ -373,18 +412,21 @@ const Board = () => {
                     loading="lazy"
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/8e08ac811a5ff415fec8d93ec4f3aa879b040c1f410e139bdb743534532af8b5?"
                     className="img-52"
+                    alt = ""
                   />
                   <div className="div-137">12 comments</div>
                   <img
                     loading="lazy"
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/6ff1645f58ebf13109177cd47f8cab10cc2e685346d7308b162277b2c632d668?"
                     className="img-53"
+                    alt = ""
                   />
                   <div className="div-138">0 files</div>
                 </div>
                 <img
                   loading="lazy"
                   srcSet="..."
+                  alt = ""
                   className="img-54"
                 />
               </div>
@@ -400,12 +442,14 @@ const Board = () => {
                     loading="lazy"
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/e85eefe7dd11258fc45ee7eefedf85d5fd2946b10870fc61a827f726596d38ba?"
                     className="img-55"
+                    alt = ""
                   />
                 </div>
               </div>
               <img
                 loading="lazy"
                 srcSet="..."
+                alt = ""
                 className="img-56"
               />
             </div>

@@ -33,6 +33,7 @@ const Dashboard = ({props}) => {
                           loading="lazy"
                           src="https://cdn.builder.io/api/v1/image/assets/TEMP/879d0d1f402932bec209cb7311bc97459d9ff48e1d8f8054f35dac6b0e102b54?"
                           className="img-8"
+                          alt = ""
                         />
                         <div className="div-32">Board</div>
                       </div>
@@ -46,6 +47,7 @@ const Dashboard = ({props}) => {
                       loading="lazy"
                       src="https://cdn.builder.io/api/v1/image/assets/TEMP/66efcc25bcaaede2e458f7df8559149a7875f4727721376a9c62b303f5996e2b?"
                       className="img-12"
+                      alt = ""
                     />
                   </div>
                 </div>
