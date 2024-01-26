@@ -178,7 +178,7 @@
   justify-content: space-start;
   align-items: center;
   display: flex;
-  margin-top: 596px;
+  margin-top: 400px;
   gap: 10px;
 }
 @media (max-width: 991px) {
@@ -1227,7 +1227,7 @@
   width: 100%;
   overflow: hidden;
 }
-.div-100 {
+.div-100, .sample-text {
   color: var(--bodytext, #eaddff);
   letter-spacing: -0.08px;
   margin-top: 8px;

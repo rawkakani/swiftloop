@@ -36,12 +36,10 @@ const Board = () => {
                     />
                   </div>
                 </div>
-                <img
-                  loading="lazy"
-                  srcSet="https://images.unsplash.com/photo-1543157145-f78c636d023d?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  className="img-16"
-                  alt = ""
-                />
+                <p className="sample-text">
+                  As a team license owner, I want to use multiplied
+                  limits
+                </p>
                 <div className="div-53">
                   <div className="div-54">
                     <img
@@ -192,12 +190,10 @@ const Board = () => {
                   />
                 </div>
               </div>
-              <img
-                loading="lazy"
-                srcSet="https://images.unsplash.com/photo-1543157145-f78c636d023d?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                className="img-31"
-                alt = ""
-              />
+              <p className="sample-text">
+                As a team license owner, I want to use multiplied
+                limits
+              </p>
               <div className="div-88">
                 <div className="div-89">
                   <img
@@ -333,12 +329,10 @@ const Board = () => {
                   />
                 </div>
               </div>
-              <img
-                loading="lazy"
-                srcSet="https://images.unsplash.com/photo-1543157145-f78c636d023d?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                className="img-45"
-                alt = ""
-              />
+              <p className="sample-text">
+                As a team license owner, I want to use multiplied
+                limits
+              </p>
               <div className="div-118">
                 <div className="div-119">
                   <img
