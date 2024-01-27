@@ -100,6 +100,38 @@
   font: 600 14px/30px Urbanist, -apple-system, Roboto, Helvetica,
     sans-serif;
 }
+.head-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.task-buttons {
+  display: flex;
+  margin-right: 20px;
+}
+.standUp {
+  margin-right: 20px;
+  background-color: #272531;
+  border: 2px solid #205bf1;
+}
+
+.create-task {
+  background-color: #205bf1;
+  border: none;
+}
+
+.standUp, .create-task {
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 20px;
+}
+.standUp:hover, .create-task:hover {
+  cursor: pointer;
+  font-weight: bolder;
+  color: #f3f3f3;
+  border-radius: 10px;
+}
+
 .div-9 {
   justify-content: space-start;
   align-items: center;
