@@ -146,3 +146,41 @@ export const addTeamMember = async (
     throw error;
   }
 };
+
+// I added this function to appli the Task creation
+export const createTask = async (
+  teamId,
+  taskName,
+  dateTime,
+  priority,
+  assignedTo
+) => {
+  try {
+    const teamDocRef = doc(db, "teams", teamId);
+    const teamDoc = await getDoc(teamDocRef);
+
+    if (!teamDoc.exists()) {
+      throw new Error("Team not found");
+    }
+
+    const taskId = uuidv4();
+    const taskDocRef = doc(db, "tasks", taskId);
+
+    await setDoc(taskDocRef, {
+      id: taskId,
+      name: taskName,
+      createdDate: new Date(),
+      dueDate: new Date(dateTime),
+      assignedTo,
+      status: "BACKLOG",
+    });
+
+    await updateDoc(teamDocRef, {
+      tasks: [...teamDoc.data().tasks, taskId],
+    });
+  } catch (error) {
+    console.error("Error creating task:", error.message);
+    throw error;
+  }
+};
+

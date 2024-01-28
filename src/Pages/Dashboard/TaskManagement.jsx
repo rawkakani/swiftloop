@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import DashHeader from "../../Components/Header/DashHeader";
 import Board from "../../Components/Board/Board";
 import SearchBar from "../../Components/Searchbar/SearchBar";
+// import { createTask } from "../../API/apiCalls";
 import AddTask from "./AddTask";
 
-function TaskManagement() {
+function TaskManagement({ teamId, taskName, dateTime, priority, assignedTo }) {
   const [isAddTaskVisible, setAddTaskVisible] = useState(false);
 
   const handleAddTaskClick = () => {
@@ -63,7 +64,7 @@ function TaskManagement() {
       </div>
 
       {/* Conditional rendering of AddTask component */}
-      {isAddTaskVisible && <AddTask onClose={handleAddTaskClose} />}
+      {isAddTaskVisible && <AddTask onClose={handleAddTaskClose} teamId={teamId} />}
     </div>
   );
 }
