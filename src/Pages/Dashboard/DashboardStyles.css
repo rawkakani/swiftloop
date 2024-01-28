@@ -58,6 +58,11 @@
   margin-top: 59px;
   gap: 11px;
 }
+.div-5:hover, .div-5::after {
+  cursor: pointer;
+  fill: #205bf1;
+  color: #205bf1;
+}
 @media (max-width: 991px) {
   .div-5 {
     margin-top: 40px;
@@ -84,6 +89,11 @@
   display: flex;
   margin-top: 24px;
   gap: 10px;
+}
+.div-7:hover {
+  cursor: pointer;
+  color: #205bf1;
+  fill: #205bf1;
 }
 .img-2 {
   aspect-ratio: 1.3;
