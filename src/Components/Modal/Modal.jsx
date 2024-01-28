@@ -22,8 +22,22 @@ const customStyles = {
   },
 };
 
-const ModalView = ({ afterOpenModal, closeModal, modalIsOpen, email, setEmail, handleSubscribe, isAccount}) => {
-  
+const ModalView = ({
+  afterOpenModal,
+  closeModal,
+  modalIsOpen,
+  email,
+  setEmail,
+  handleSubscribe,
+  isAccount,
+  hasTeam,
+  handleCreateTeam,
+  email1,
+  setEmail1,
+  handleAddTeamMember,
+  teamName,
+  setTeamName,
+}) => {
   return (
     <Modal
       isOpen={modalIsOpen}
@@ -42,26 +56,58 @@ const ModalView = ({ afterOpenModal, closeModal, modalIsOpen, email, setEmail, h
               Welcome to SwiftLoop. Your team collaboration and management tool.
               Sign up to get started
             </p>
-            <Subscribe email={email} setEmail={setEmail} handleSubscribe={handleSubscribe} btnTxt="Continue"/>
+            <Subscribe
+              email={email}
+              setEmail={setEmail}
+              handleSubscribe={handleSubscribe}
+              btnTxt="Continue"
+            />
             <div className="signup-with-g">
-                <span>
+              <span>
                 <p>Or Signup with Google</p>
-                </span>
-                <div className="google-icon">
-                    <FaGoogle />
-                </div>
+              </span>
+              <div className="google-icon">
+                <FaGoogle />
+              </div>
             </div>
           </div>
         ) : (
           <div className="modal-body">
-            <p>Invite your team now!</p>
-            <div className="invite-team">
-              <AddTeam email={email} setEmail={email}/>
-              <AddTeam email={email} setEmail={email}/>
-              <AddTeam email={email} setEmail={email}/>
-            </div>
-            <p>Invite more</p>
-            <button className="btn" onClick={()=>{closeModal()}}>Done</button>
+            {hasTeam ? (
+              <>
+                <h3>{teamName}</h3>
+                <p>Add your team members now!</p>
+                <div className="invite-team">
+                  <AddTeam email={email1} setEmail={setEmail1} handleAddTeamMember={handleAddTeamMember} />
+                </div>
+                <p>Invite more</p>
+              </>
+            ) : (
+              <>
+                <p>Create your team now!</p>
+                <div className="invite-team">
+                  <form className="AddTeam">
+                    <input
+                      type="email"
+                      placeholder="Enter Team Name"
+                      value={teamName}
+                      onChange={(e) => setTeamName(e.target.value)}
+                    />
+                    <button type="button" onClick={() => {handleCreateTeam(teamName)}}>Create Team</button>
+                  </form>
+                </div>
+              </>
+            )}
+            <button
+              className="btn"
+              onClick={() => {
+                closeModal();
+                setTeamName("");
+                setEmail("");
+              }}
+            >
+              Done
+            </button>
           </div>
         )}
       </div>
