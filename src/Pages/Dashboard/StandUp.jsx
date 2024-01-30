@@ -103,7 +103,7 @@ const StandUp = ({ onClose }) => {
 
             
             <div className="date">
-              <label className="dateName">Date</label>
+              <label className="dateName">Date</label> <br/>
               <input
                 type="text"
                 name="dateTime"
@@ -116,15 +116,15 @@ const StandUp = ({ onClose }) => {
 
             </div>
             <div className="start">
-              <label className="startName">Time</label>
+              <label className="startName">Time</label> <br/>
               <input
                 type="text"
                 placeholder="11:00 AM"
                 className="start-input"
               />
             </div>
-            <div className="end">
-              <label className="endName">  . </label>
+            <div className="end"> 
+              <label className="endName">  . </label> <br/>
               <input
                 type="text"
                 placeholder="13:00 AM"
