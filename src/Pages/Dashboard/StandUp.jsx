@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import './StandUp.css';
 import { createTask } from "../../API/apiCalls";
 
-function StandUp() {
-// const StandUp = ({ onClose }) => {
+// function StandUp() {
+const StandUp = ({ onClose }) => {
 
  const [sendNotification, setSendNotification] = useState(false);
   const [isClosed, setIsClosed] = useState(false);
@@ -12,10 +12,10 @@ function StandUp() {
   const [priority, setPriority] = useState("Critical");
   const [assignedTo, setAssignedTo] = useState("");
 
-//   const handleCloseClick = () => {
-//     setIsClosed(true);
-//     onClose();
-//   };
+  const handleCloseClick = () => {
+    setIsClosed(true);
+    onClose();
+  };
 
   const handleSaveClick = async () => {
     try {
@@ -47,7 +47,7 @@ function StandUp() {
 
         <div className="close-x">
           <p className="close" 
-        //   onClick={handleCloseClick}
+           onClick={handleCloseClick}
           >
             <span className="close-now">X</span>
           </p>
@@ -157,7 +157,7 @@ function StandUp() {
               Save
             </button>
             <button className="cancel-btn" 
-            // onClick={handleCloseClick}
+            onClick={handleCloseClick}
             >
               Cancel
             </button>
