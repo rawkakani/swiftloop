@@ -43,19 +43,16 @@ const StandUp = ({ onClose }) => {
 
   return (
     <div className="standup-container">
-      <div className="content">
+      <div className="standup-content">
 
-        <div className="close-x">
-          <p className="close" 
-           onClick={handleCloseClick}
-          >
-            <span className="close-now">X</span>
-          </p>
-          <div className="heads">
-            <span className="main-head">Quick Standup</span>
-            <span className="date-today"> {dateTime} </span>
-          </div>
-        </div>
+      
+
+      <div className="header-container" >
+        <div className="heading" > Quick Standup </div>
+        <div className="close-button" onClick={handleCloseClick} > X </div>
+      </div>
+
+
 
         <form className="form-content">
 
