@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Hero from "../../Components/Hero/Hero";
+import Header from "../../Components/Header/Header";
 import "./HomePage.css";
 import { signUp, createTeam, addTeamMember } from "../../API/apiCalls";
 import logo from "../../Assets/logo.svg";
 import Signup from "../../Components/Modal/Signup";
+import { Link } from "react-router-dom";
 
 const SignupPage = () => {
   const [email, setEmail] = useState("");
@@ -42,7 +44,7 @@ const SignupPage = () => {
 
   return (
     <div className="HomePage">
-      {/* <Header /> */}
+      <Header />
       <Hero
         email={email}
         setEmail={setEmail}
@@ -52,6 +54,7 @@ const SignupPage = () => {
 
       <div className="overlay">
         <div className="card">
+        <Link to="/">Go back to Home</Link>
         <div className="modal-header">
           <img src={logo} alt="logo" />
         </div>

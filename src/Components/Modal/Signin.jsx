@@ -24,9 +24,6 @@ const Signin = ({
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-
-      console.log(user)
-
       setEmail("");
       setPassword("");
 
@@ -36,14 +33,12 @@ const Signin = ({
         sendEmailVerification(auth.currentUser).then(() => {
           alert("Email verification sent!, Kindly check your email and verify it using the link sent");
         });
-      }
-
-      
-      
+      }      
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      alert(errorMessage);
     });
   };
   return (

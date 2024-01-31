@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import Header from "../../Components/Header/Header";
 import Hero from "../../Components/Hero/Hero";
 import "./HomePage.css";
 import { signUp, createTeam, addTeamMember } from "../../API/apiCalls";
 import Signin from "../../Components/Modal/Signin";
 import logo from "../../Assets/logo.svg";
+import { Link } from "react-router-dom";
 
 const Autheticatation = () => {
   const [email, setEmail] = useState("");
@@ -42,7 +44,7 @@ const Autheticatation = () => {
 
   return (
     <div className="HomePage">
-      {/* <Header /> */}
+      <Header />
       <Hero
         email={email}
         setEmail={setEmail}
@@ -52,6 +54,7 @@ const Autheticatation = () => {
 
       <div className="overlay">
         <div className="card">
+          <Link to="/">Go back to Home</Link>
         <div className="modal-header">
           <img src={logo} alt="logo" />
         </div>
