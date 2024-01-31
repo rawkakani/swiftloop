@@ -1,6 +1,8 @@
+import React from "react";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  sendEmailVerification,
 } from "firebase/auth";
 import { auth, db } from "../Firebase/Firebase";
 import {
@@ -13,26 +15,28 @@ import {
   setDoc,
 } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
+import { useNavigate } from "react-router";
 
 export const signUp = async (
   email,
   password,
-  setError,
   setEmail,
+  setPassword,
   setIsAccount
 ) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      // setEmail('');/
+
+      setEmail("");
+      setPassword("");
       setIsAccount(true);
-      return user;
+
       // ...
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      setError(errorMessage);
       // ..
     });
 };
@@ -40,22 +44,28 @@ export const signUp = async (
 export const signIn = async (
   email,
   password,
-  setError,
   setEmail,
-  setIsAccount
+  setPassword
 ) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed in
+
+      
+      console.log("Signed in")
       const user = userCredential.user;
+
       setEmail("");
-      setIsAccount(true);
+      setPassword("");
+      const navigate = useNavigate();
+      navigate("/dashboard");
+      // sendEmailVerification(auth.currentUser).then(() => {
+        
+      // });
       // ...
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      setError(errorMessage);
     });
 };
 
@@ -98,40 +108,42 @@ export const addTeamMember = async (
   try {
     const teamDocRef = doc(db, "teams", teamId);
     const teamDoc = await getDoc(teamDocRef);
+
     if (!teamDoc.exists()) {
       throw new Error("Team not found");
     } else {
-      const isMemberAlreadyAdded = await teamDoc.data().members.some(member => member.member === memberEmail);
+      const isMemberAlreadyAdded = await teamDoc
+        .data()
+        .members.some((member) => member.member === memberEmail);
       if (isMemberAlreadyAdded) {
         alert("Member is already part of the team");
-        return; 
+        return;
       } else {
         const teamMemberDocRef = doc(db, "teamMember", memberEmail);
-      const teamMemberDoc = await getDoc(teamMemberDocRef);
-      if (!teamMemberDoc.exists()) {
-        const memberRef = await setDoc(doc(db, "teamMember", memberEmail), {
-          email: memberEmail,
-          teams: [{ name: teamName, id: teamId, accepted: false }],
-          name: teamName,
-        });
-      } else {
-        const isMemberAlreadyInvite = await teamMemberDoc
-          .data()
-          .teams.includes(teamId);
-        if (isMemberAlreadyInvite) {
-          alert("Member is already part of the team");
-          return; 
+        const teamMemberDoc = await getDoc(teamMemberDocRef);
+        if (!teamMemberDoc.exists()) {
+          const memberRef = await setDoc(doc(db, "teamMember", memberEmail), {
+            email: memberEmail,
+            teams: [{ name: teamName, id: teamId, accepted: false }],
+            name: teamName,
+          });
+        } else {
+          const isMemberAlreadyInvite = await teamMemberDoc
+            .data()
+            .teams.includes(teamId);
+          if (isMemberAlreadyInvite) {
+            alert("Member is already part of the team");
+            return;
+          }
+          await updateDoc(teamMemberDocRef, {
+            teams: [
+              ...teamMemberDoc.data().teams,
+              { name: teamName, id: teamId, accepted: false },
+            ],
+          });
         }
-        await updateDoc(teamMemberDocRef, {
-          teams: [
-            ...teamMemberDoc.data().teams,
-            { name: teamName, id: teamId, accepted: false },
-          ],
-        });
       }
 
-      }
-      
       await updateDoc(teamDocRef, {
         members: [
           ...teamDoc.data().members,
