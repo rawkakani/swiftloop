@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import "./Modal.css";
-import logo from "../../Assets/logo.svg";
 import Subscribe from "../Subscribe/Subscribe";
 import { FaGoogle } from "react-icons/fa";
-import AddTeam from "../AddTeam/AddTeam";
+import AddTeamMember from "./CreateTeam";
+import CreateTeam from "./CreateTeam";
 
 const customStyles = {
   content: {
@@ -38,6 +38,9 @@ const ModalView = ({
   teamName,
   setTeamName,
 }) => {
+
+  const [status, setStatus] = useState("signingIn");
+  const [password, setPassword] = useState("");
   return (
     <Modal
       isOpen={modalIsOpen}
@@ -47,9 +50,8 @@ const ModalView = ({
       contentLabel="Example Modal"
     >
       <div className="modal-content">
-        <div className="modal-header">
-          <img src={logo} alt="logo" />
-        </div>
+        
+  
         {!isAccount ? (
           <div className="modal-body">
             <p>
@@ -74,29 +76,9 @@ const ModalView = ({
         ) : (
           <div className="modal-body">
             {hasTeam ? (
-              <>
-                <h3>{teamName}</h3>
-                <p>Add your team members now!</p>
-                <div className="invite-team">
-                  <AddTeam email={email1} setEmail={setEmail1} handleAddTeamMember={handleAddTeamMember} />
-                </div>
-                <p>Invite more</p>
-              </>
+              <AddTeamMember email1={email1} setEmail1={setEmail1} handleAddTeamMember={handleAddTeamMember} />
             ) : (
-              <>
-                <p>Create your team now!</p>
-                <div className="invite-team">
-                  <form className="AddTeam">
-                    <input
-                      type="email"
-                      placeholder="Enter Team Name"
-                      value={teamName}
-                      onChange={(e) => setTeamName(e.target.value)}
-                    />
-                    <button type="button" onClick={() => {handleCreateTeam(teamName)}}>Create Team</button>
-                  </form>
-                </div>
-              </>
+              <CreateTeam teamName={teamName} setTeamName={setTeamName} handleAddTeamMember={handleAddTeamMember} />  
             )}
             <button
               className="btn"
