@@ -3,14 +3,14 @@ import DashHeader from "../../Components/Header/DashHeader";
 import Board from "../../Components/Board/Board"
 import SearchBar from "../../Components/Searchbar/SearchBar";
 
-function DashboardHome() {
+function DashboardHome({user}) {
   return (
     <div className="column-2">
       <div className="div-17">
         <div className="div-18">
           {/* Header goes here */}
-          <DashHeader />
-          <div className="div-25">Welcome Ezzy</div>
+          <DashHeader user={user}/>
+          <div className="div-25">Welcome {user}</div>
           <div className="div-26">
             You have{" "}
             <span style={{ color: "rgba(32, 91, 241, 1)" }}>2 new</span> tasks!

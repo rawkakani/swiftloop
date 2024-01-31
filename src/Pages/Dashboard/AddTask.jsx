@@ -104,14 +104,22 @@ const AddTask = ({ onClose }) => {
             </div>
             <div className="Assign">
               <label className="startName">Assigned to</label>
-              <input
+              {/* <input
                 type="text"
                 name="assignedTo"
                 value={assignedTo}
                 onChange={(e) => setAssignedTo(e.target.value)}
                 placeholder="Name surname"
                 className="assin-input"
-              />
+              /> */}
+              <select
+                name="assignedTo"
+                value={assignedTo}
+                onChange={(e) => setAssignedTo(e.target.value)}
+                className="selection"
+              >
+                <option value="">Select</option>
+              </select>
             </div>
           </div>
 
