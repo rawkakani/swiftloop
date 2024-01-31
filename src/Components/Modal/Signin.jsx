@@ -1,19 +1,50 @@
 import React, { useState } from "react";
 import "./Modal.css";
 import { FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import { signIn } from "../../API/apiCalls";
+import { Link, useNavigate } from "react-router-dom";
+
+import {
+  signInWithEmailAndPassword,
+  sendEmailVerification,
+} from "firebase/auth";
+import { auth } from "../../Firebase/Firebase";
 
 const Signin = ({
   email,
   setEmail,
 }) => {
 
+  
+  const navigate = useNavigate();
+
   const [password, setPassword] = useState("");
 
-  const handleSignin = (e) => {
+  const handleSignin = async(e) => {
     e.preventDefault();
-    signIn(email, password, setEmail, setPassword);
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+
+      console.log(user)
+
+      setEmail("");
+      setPassword("");
+
+      if(user.emailVerified) {
+        navigate("/dashboard");
+      } else {
+        sendEmailVerification(auth.currentUser).then(() => {
+          alert("Email verification sent!, Kindly check your email and verify it using the link sent");
+        });
+      }
+
+      
+      
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
   };
   return (
     <div className="modal-body">
