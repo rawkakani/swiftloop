@@ -7,23 +7,29 @@
 
 .standup-container {
   position: absolute;
-  display: flex;
+  display: flex; /* Set display to flex to use flexbox properties */
   flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
   line-height: normal;
   z-index: 5;
-  background-color: #0030a8;
-  padding: 10px 100px;
-  border-radius: 10px;
-
+  background-color: rgba(20, 0, 240, 0.516);
+  width: inherit;
+  height: 100vh;
+  margin: 0px;
 }
+
 
 .standup-content {
   display: flex;
-  flex-grow: 1;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
-  padding: 0 20px 20px 20px;
+  width: max-content;
+  height: max-content;
+  padding: 10px 100px;
+  border-radius: 10px;
+  background-color: #1A2132;
+
 }
 
 
