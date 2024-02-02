@@ -1,12 +1,13 @@
 .AddMain {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   display: flex;
   flex-direction: column;
   line-height: normal;
   width: 28%;
-  margin-top: 206px;
+  z-index: 5;
+  /* margin-top: 206px; */
   border: 0.6px solid whitesmoke;
 }
 @media (max-width: 991px) {
