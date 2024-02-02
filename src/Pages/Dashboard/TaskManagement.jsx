@@ -4,9 +4,11 @@ import Board from "../../Components/Board/Board";
 import SearchBar from "../../Components/Searchbar/SearchBar";
 // import { createTask } from "../../API/apiCalls";
 import AddTask from "./AddTask";
+import AddStandup  from "./StandUp";
 
-function TaskManagement({ teamId, taskName, dateTime, priority, assignedTo }) {
+function TaskManagement({ teamId, taskName, dateTime, priority, assignedTo, user }) {
   const [isAddTaskVisible, setAddTaskVisible] = useState(false);
+  const [isAddStandupVisible, setAddStandupVisible] = useState(false);
 
   const handleAddTaskClick = () => {
     setAddTaskVisible(!isAddTaskVisible);
@@ -16,16 +18,24 @@ function TaskManagement({ teamId, taskName, dateTime, priority, assignedTo }) {
     setAddTaskVisible(false);
   };
 
+  const handleAddStandupClick = () => {
+    setAddStandupVisible(!isAddStandupVisible);
+  };
+
+  const handleAddStandupClose = () => {
+    setAddStandupVisible(false);
+  };
+
   return (
     <div className="column-2">
       <div className="div-17">
         <div className="div-18">
           {/* Header goes here */}
-          <DashHeader />
+          <DashHeader user={user} />
           <div className="head-wrapper">
             <div className="div-25">Manage Tasks</div>
             <div className="task-buttons">
-              <button className="standUp">+ Standup</button>
+              <button className="standUp" onClick={handleAddStandupClick} >+ Standup</button>
               <button className='create-task' onClick={handleAddTaskClick}>+ New Task</button>
             </div>
           </div>
@@ -65,6 +75,7 @@ function TaskManagement({ teamId, taskName, dateTime, priority, assignedTo }) {
 
       {/* Conditional rendering of AddTask component */}
       {isAddTaskVisible && <AddTask onClose={handleAddTaskClose} teamId={teamId} />}
+      {isAddStandupVisible && <AddStandup onClose={handleAddStandupClose} teamId={teamId} />}
     </div>
   );
 }

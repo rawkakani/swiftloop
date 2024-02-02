@@ -246,6 +246,8 @@
 .column-2 {
   display: flex;
   flex-direction: column;
+  justify-content:center;
+  align-items: center;
   line-height: normal;
   width: 82%;
   margin-left: 20px;

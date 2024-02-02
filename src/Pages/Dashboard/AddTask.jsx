@@ -14,7 +14,8 @@ const AddTask = ({ onClose }) => {
     onClose();
   };
 
-  const handleSaveClick = async () => {
+  const handleSaveClick = async (e) => {
+    e.preventDefault();
     try {
       // Call the function to create a task in Firestore
       // await createTask(teamId, taskName, dateTime, priority, assignedTo);
@@ -44,7 +45,7 @@ const AddTask = ({ onClose }) => {
           </div>
         </div>
 
-        <form className="form-content">
+        <form className="form-content" onSubmit={(e) => {handleSaveClick(e)}}>
           <div className="taskname">
             <label className="lableName">Name the task</label>
             <input
@@ -103,19 +104,19 @@ const AddTask = ({ onClose }) => {
             </div>
             <div className="Assign">
               <label className="startName">Assigned to</label>
-              <input
-                type="text"
+              <select
                 name="assignedTo"
                 value={assignedTo}
                 onChange={(e) => setAssignedTo(e.target.value)}
-                placeholder="Name surname"
-                className="assin-input"
-              />
+                className="selection"
+              >
+                <option value={assignedTo}>Roy</option>
+              </select>
             </div>
           </div>
 
           <div className="buttons">
-            <button className="save-btn" onClick={handleSaveClick}>
+            <button className="save-btn" type="submit">
               Save
             </button>
             <button className="cancel-btn" onClick={handleCloseClick}>
