@@ -19,6 +19,7 @@ const Navigation = ({openModal}) => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/'>Features</Link></li>
         <li><Link to='/'>Pricing</Link></li>
+        <li><Link to='/signin'>Login</Link></li>
         <li><Link to='/' onClick={openModal} className='btn-link'>Get Started</Link></li>
       </ul>
     </nav>
