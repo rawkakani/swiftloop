@@ -1,3 +1,6 @@
+.AddMain {
+  position: absolute;
+  top: 0;}
 
 .add-task-container{
   position: fixed;
@@ -6,59 +9,10 @@
   display: flex; /* Set display to flex to use flexbox properties */
   flex-direction: column;
   line-height: normal;
-  z-index: 5;
-  background-color: rgba(37, 43, 60, 0.9);
-  width: 100vw;
-  height: 100vh;
-  align-items: last baseline;
+  width: 28%;
+  margin-top: 206px;
+  border: 0.6px solid whitesmoke;
 }
-.task-content{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: max-content;
-  height: max-content;
-  padding: 10px 100px;
-  border-radius: 10px;
-  background-color: #1A2132;
-}
-
-
-.header-container {
-  flex-direction: row;
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  margin: 50px 0px;
-
-}
-
-.heading {
-  color: whitesmoke;
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
-.close-button {
-  position: relative;
-  padding: 5px 10px;
-  background-color: #272531;
-  color: whitesmoke;
-  border-radius: 3px;
-  top: 10%;
-  right: 10%;
-  font-size: 1.5em;
-}
-
-.close-button:hover {
-  cursor: pointer;
-}
-
-
-
-
-
-
 @media (max-width: 991px) {
   .AddMain {
     width: 100%;
