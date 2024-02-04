@@ -20,6 +20,7 @@
   flex-direction: column;
   line-height: normal;
   width: 18%;
+  height: 100vh;
   margin-left: 0px;
 }
 @media (max-width: 991px) {
