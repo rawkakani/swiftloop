@@ -24,6 +24,7 @@ const Sidebar = ({ onTabClick }) => {
           />
           <div className="div-8">Tasks and events</div>
         </div>
+        <div>
         {/* <div className="div-9">
           <img
             loading="lazy"
@@ -60,6 +61,7 @@ const Sidebar = ({ onTabClick }) => {
           />
           <div className="div-16">Team MVP1</div>
         </div> */}
+        </div>
       </div>
     </div>
   )
