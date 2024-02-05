@@ -4,8 +4,11 @@ import "./HomePage.css";
 import Header from "../../Components/Header/Header";
 import ModalView from "../../Components/Modal/Modal";
 import { signUp, createTeam, addTeamMember } from "../../API/apiCalls";
+import { useNavigate } from "react-router-dom";
+
 
 const Homepage = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [email1, setEmail1] = useState('');
   const [email2, setEmail2] = useState('');
@@ -25,7 +28,7 @@ const Homepage = () => {
       setEmail,
       setIsAccount
     );
-    openModal();
+    navigate("/signup")
   };
 
   const handleCreateTeam = (teamName) => {
