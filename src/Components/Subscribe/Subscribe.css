@@ -5,7 +5,7 @@
 }
 
 .Subscribe input {
-    padding: 20px;
+    padding: 13px 20px;
     border: none;
     outline: none;
     font-size: 14px;
@@ -13,15 +13,17 @@
     background-color: rgb(255, 255, 255, 0.1);
     color: #ffffff;
     width: 70%;
+    font-family: "Arial, FontAwesome";
 }
 
 .Subscribe button {
-    padding: 20px;
+    padding: 13px 25px;
     border: none;
     outline: none;
     font-size: 14px;
     font-weight: 400;
-    background-color: #205BF1;
+    background-color: #2F81B0;
     color: #ffffff;
     cursor: pointer;
+    border-radius: 9px;
 }

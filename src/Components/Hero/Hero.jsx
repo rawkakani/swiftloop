@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import { signUp } from '../../API/apiCalls';
 import './Hero.css';
-import img from '../../Assets/loop_fig.svg';
+import img from '../../Assets/hero_img.svg';
 import Subscribe from '../Subscribe/Subscribe';
+import { Link } from 'react-router-dom';
 
 const Hero = ({email, setEmail, error, handleSubscribe}) => {
     
@@ -13,7 +14,7 @@ const Hero = ({email, setEmail, error, handleSubscribe}) => {
         <p>Experience Instant Feedback and Effortless Coordination with SwiftLoop</p>
         <Subscribe email={email} setEmail={setEmail} handleSubscribe={handleSubscribe} btnTxt="Get Started"/>
         {error && <p className='error'>{error}</p>}
-        <p>Note. We do not collect your Data</p>
+        <p>Already have an account? <Link to="signin">Login</Link> </p>
       </div>
       <div className="image">
         <img src={img} alt="hero" />

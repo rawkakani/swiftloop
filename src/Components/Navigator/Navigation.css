@@ -34,9 +34,10 @@
 }
 
 .btn-link {
-    background-color: #205BF1;
-    padding: 20px;
+    background-color: #4A5567;
+    padding: 8px 30px;
     font-weight: 500;
+    border-radius: 8px;
 }
 
 #none {
