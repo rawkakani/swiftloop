@@ -61,17 +61,16 @@ const AddTask = ({ onClose }) => {
   }
 
   return (
-    <div className="AddMain">
-      <div className="content">
-        <div className="close-x">
-          <p className="close" onClick={handleCloseClick}>
-            <span className="close-now">X</span>
-          </p>
-          <div className="heads">
-            <h1 className="main-head">Add Task</h1>
-            <small className="date-today">Today 02/02/2024</small>
-          </div>
-        </div>
+    <div className="add-task-container">
+      <div className="task-content">
+
+
+
+      <div className="header-container" >
+        <div className="heading" > Add Task </div>
+        <div className="close-button" onClick={handleCloseClick} > X </div>
+      </div>
+
 
         <form
           className="form-content"

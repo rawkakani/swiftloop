@@ -19,7 +19,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="div">
+      <div className="dashboard-container">
         <div className="div-2">
           {/* Sidebar goes here */}
           <Sidebar onTabClick={handleTabClick} />

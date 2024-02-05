@@ -1,0 +1,72 @@
+@import url(/src/App.css);
+:root {
+    --main-bg-color: #0f1626;
+    --sec-bg-color: #1A2132;
+    --main-text-color: white;
+    --sec-text-color: #717179;
+    --border-color: #232C3E;
+    --main-button-color: #4A5567;
+    --btn-hover-color: #414F65;
+    --btn-active-color: #2857B6;
+    --main-tag-color: #EF9712;
+    ;
+  }
+
+.tasks-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: var(--sec-title-color);
+    height: 70vh;
+    width: 100%;
+
+    border: solid 1px red;
+}
+
+.pending-container,.wip-container,.backlog-container{
+    background: var(--sec-bg-color);
+    color: var(--main-text-color);
+    width: 30%;
+    height: 100%;
+    border: solid 1px red;
+}
+
+.task-card{
+    margin: 20px 5px;
+    background-color: var(--main-bg-color);
+    line-height: 2;
+    border-radius: 10px;
+    padding: 10px;
+
+}
+.task-card-header,.task-card-footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+.round-orange{
+    height: 15px;
+    width:15px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--main-tag-color);
+
+}
+.task-card-footer{
+    margin-top: 10px;
+}
+.task-desc{
+    font-weight: normal;
+    font-size: 0.85em;
+
+}
+.action-button{
+    background-color:var(--btn-active-color);
+    border-radius:10px;
+    border: none;
+    color:var(--main-text-color);
+    padding: 0px 10px;
+}
+
