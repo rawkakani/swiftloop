@@ -160,7 +160,6 @@ export const createTask = async (
   try {
     // const teamDocRef = doc(db, "teams", teamId);
     // const teamDoc = await getDoc(teamDocRef);
-
     // if (!teamDoc.exists()) {
     //   throw new Error("Team not found");
     // }
@@ -176,6 +175,8 @@ export const createTask = async (
       dueDate: new Date(dateTime),
       assignedTo: assignedTo,
       status: "BACKLOG",
+      priority:priority,
+      teamId:teamId
     });
 
     // await updateDoc(teamDocRef, {
@@ -201,5 +202,10 @@ export const getCurrentUser = async (setUser) => {
       // ...
     }
   });
-}
+};
+
+
+
+
+
 

@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import {db } from "../../Firebase/Firebase";
+import { collection, getDocs } from "firebase/firestore";
 import "./Board.css";
 
-const Board = () => {
+const Board = ({ teamId, userId }) => {
   const dummyUser = {
     userId: "user123",
     userName: "John Doe",
@@ -71,6 +73,34 @@ const Board = () => {
       user: dummyUser,
     },
   ];
+
+
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    const fetchTasks = async () => {
+      try {
+        const tasksCollection = collection(db, "tasks");
+        const tasksSnapshot = await getDocs(tasksCollection);
+
+        const tasksData = tasksSnapshot.docs
+          .filter((doc) => doc.data().teamId === teamId && doc.data().assignedTo === userId)
+          .map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+
+        setTasks(tasksData);
+      } catch (error) {
+        console.error("Error fetching tasks:", error.message);
+      }
+    };
+
+    fetchTasks();
+  }, [teamId, userId]);
+
+
+
 
   const [selectedTask, setSelectedTask] = useState(null);
   const [selectedOption, setSelectedOption] = useState(null);
