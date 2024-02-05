@@ -155,37 +155,46 @@ export const createTask = async (
   dateTime,
   priority,
   assignedTo,
-  createdby
+  createdBy
 ) => {
   try {
     // const teamDocRef = doc(db, "teams", teamId);
     // const teamDoc = await getDoc(teamDocRef);
-
     // if (!teamDoc.exists()) {
     //   throw new Error("Team not found");
     // }
 
     const taskId = uuidv4();
-    const taskDocRef = doc(db, "tasks", taskId);
+    const taskDocRef = doc(db, 'tasks', taskId);
 
     await setDoc(taskDocRef, {
       id: taskId,
-      createdby: createdby,
+      createdBy: createdBy,
       name: taskName,
       createdDate: new Date(),
       dueDate: new Date(dateTime),
       assignedTo: assignedTo,
       status: "BACKLOG",
+      priority:priority,
+      teamId:teamId
     });
 
-    // await updateDoc(teamDocRef, {
-    //   tasks: [...teamDoc.data().tasks, taskId],
-    // });
+    const teamDocRef = doc(db, 'teams', teamId);
+    const teamDoc = await getDoc(teamDocRef);
+
+    if (!teamDoc.exists()) {
+      throw new Error('Team not found');
+    }
+
+    await updateDoc(teamDocRef, {
+      tasks: [...teamDoc.data().tasks, taskId],
+    });
   } catch (error) {
-    console.error("Error creating task:", error.message);
+    console.error('Error creating task:', error.message);
     throw error;
   }
 };
+
 
 export const getCurrentUser = async (setUser) => {
   onAuthStateChanged(auth, (user) => {
@@ -202,5 +211,50 @@ export const getCurrentUser = async (setUser) => {
       // ...
     }
   });
-}
+};
+
+
+
+
+
+
+// Add a create standup function
+export const createStandup = async (
+  teamId,
+  standupName,
+  description,
+  assignedTo,
+  dateTime,
+  createdBy
+) => {
+  try {
+    const standupId = uuidv4();
+    const standupDocRef = doc(db, "standups", standupId);
+
+    await setDoc(standupDocRef, {
+      id: standupId,
+      createdBy: createdBy,
+      name: standupName,
+      description: description,
+      assignedTo: assignedTo,
+      dueDate: new Date(dateTime),
+      status: "IN_PROGRESS",
+    });
+
+    const teamDocRef = doc(db, "teams", teamId);
+    const teamDoc = await getDoc(teamDocRef);
+
+    if (!teamDoc.exists()) {
+      throw new Error("Team not found");
+    }
+
+    await updateDoc(teamDocRef, {
+      standups: [...teamDoc.data().standups, standupId],
+    });
+  } catch (error) {
+    console.error("Error creating standup:", error.message);
+    throw error;
+  }
+};
+
 

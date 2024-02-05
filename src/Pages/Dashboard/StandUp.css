@@ -6,7 +6,9 @@
 }
 
 .standup-container {
-  position: absolute;
+  position: fixed;
+  right: 0;
+  top: 0;
   display: flex; /* Set display to flex to use flexbox properties */
   flex-direction: column;
   justify-content: center; /* Center vertically */
@@ -14,9 +16,9 @@
   line-height: normal;
   z-index: 5;
   background-color: rgba(37, 43, 60, 0.9);
-  width: inherit;
+  /* width: inherit; */
+  width: 100vw;
   height: 100vh;
-  margin: 0px;
 }
 
 
@@ -49,13 +51,13 @@
 }
 
 .close-button {
-  position: absolute;
+  position: relative;
   padding: 5px 10px;
   background-color: #272531;
   color: whitesmoke;
   border-radius: 3px;
-  top: 15px;
-  right: 15px;
+  top: 10%;
+  right: 10%;
   font-size: 1.5em;
 }
 
