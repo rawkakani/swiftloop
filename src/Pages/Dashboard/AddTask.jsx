@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import dummyData from "../../Data/DummyData";
+// import dummyData from "../../Data/DummyData";
 import "./AddTask.css";
 import { createTask } from "../../API/apiCalls";
 
@@ -14,22 +14,30 @@ const AddTask = ({ onClose }) => {
   const [assignies, setAssignies] = useState([]);
 
   useEffect(() => {
-    const getData = () => {
-      setTasks(dummyData);
-
-      const uniqueAssignies = [
-        ...new Set(dummyData.map((assign) => assign.assignedTo)),
-      ];
-      setAssignies(uniqueAssignies);
-
-      const uniquePriorities = [
-        ...new Set(dummyData.map((task) => task.priority)),
-      ];
-      setPriorities(uniquePriorities);
+    const getData = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'tasks'));
+        const fetchedTasks = querySnapshot.docs.map((doc) => doc.data());
+  
+        setTasks(fetchedTasks);
+  
+        const uniqueAssignies = [
+          ...new Set(fetchedTasks.map((assign) => assign.assignedTo)),
+        ];
+        setAssignies(uniqueAssignies);
+  
+        const uniquePriorities = [
+          ...new Set(fetchedTasks.map((task) => task.priority)),
+        ];
+        setPriorities(uniquePriorities);
+      } catch (error) {
+        console.error('Error fetching data:', error.message);
+      }
     };
-
+  
     getData();
   }, []);
+  
 
   const handleCloseClick = () => {
     setIsClosed(true);

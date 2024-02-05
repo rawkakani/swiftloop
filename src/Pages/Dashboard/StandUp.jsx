@@ -17,18 +17,10 @@ const StandUp = ({ onClose }) => {
 
   const handleSaveClick = async () => {
     try {
-      // Replace 'yourTeamId' and 'yourCreatorId' with actual values
-      await createStandup(
-        // 'yourTeamId',
-        standupName,
-        description,
-        assignedTo,
-        dateTime,
-        // 'yourCreatorId'
-      );
-      handleCloseClick();
+      const teamId = {teamId}; // Replace with your actual teamId
+      await createStandup(teamId, taskName, description, assignedTo, dateTime, createdBy);
     } catch (error) {
-      console.error("Error creating standup:", error.message);
+      console.error('Error creating standup:', error.message);
     }
   };
 
@@ -101,6 +93,7 @@ const StandUp = ({ onClose }) => {
               />
             </div>
           </div>
+          3/
 
           <div className="notifications">
             <div className="notification">
