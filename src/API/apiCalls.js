@@ -195,6 +195,7 @@ export const getCurrentUser = async (setUser) => {
       const uid = user.uid;
 
       setUser(user.email)
+      console.log(user)
       // ...
     } else {
       // User is signed out
