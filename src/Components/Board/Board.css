@@ -20,7 +20,7 @@
     height: 70vh;
     width: 100%;
 
-    border: solid 1px red;
+    border: none;
 }
 
 .pending-container,.wip-container,.backlog-container{
@@ -28,7 +28,7 @@
     color: var(--main-text-color);
     width: 30%;
     height: 100%;
-    border: solid 1px red;
+    border: none;
 }
 
 .task-card{

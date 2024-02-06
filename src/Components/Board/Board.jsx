@@ -201,16 +201,16 @@ const Board = ({ teamId, userId }) => {
   return (
     <div className="tasks-container">
       <div className="pending-container">
-        <h2>Pending Tasks</h2>
+        <h3>Pending</h3>
         {renderTasksByStatus("pending")}
       </div>
 
       <div className="wip-container">
-        <h2>Work in Progress</h2>
+        <h3>Work in Progress</h3>
         {renderTasksByStatus("wip")}
       </div>
       <div className="backlog-container">
-        <h2>Backlog</h2>
+        <h3>Backlog</h3>
         {renderTasksByStatus("backlog")}
       </div>
 
