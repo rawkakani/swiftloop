@@ -26,14 +26,12 @@ function TaskManagement({ teamId, taskName, dateTime, priority, assignedTo, team
     setAddStandupVisible(false);
   };
 
-  console.log(teams)
-
   return (
     <div className="column-2">
       <div className="div-17">
         <div className="div-18">
           {/* Header goes here */}
-          <DashHeader teams={teams} />
+          <DashHeader teams={teams.name} />
           <div className="head-wrapper">
             <div className="div-25">Manage Tasks</div>
             <div className="task-buttons">
@@ -76,8 +74,8 @@ function TaskManagement({ teamId, taskName, dateTime, priority, assignedTo, team
       </div>
 
       {/* Conditional rendering of AddTask component */}
-      {isAddTaskVisible && <AddTask user={user} teams={teams} onClose={handleAddTaskClose} teamId={teamId} />}
-      {isAddStandupVisible && <AddStandup user={user} teams={teams} onClose={handleAddStandupClose} teamId={teamId} />}
+      {isAddTaskVisible && <AddTask user={user} teams={teams.id} onClose={handleAddTaskClose} teamId={teamId} />}
+      {isAddStandupVisible && <AddStandup user={user} teams={teams.id} onClose={handleAddStandupClose} teamId={teamId} />}
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import React from "react";
 
 const DashHeader = ({teams}) => {
-  console.log(teams)
   return (
     <div className="div-19">
       <img

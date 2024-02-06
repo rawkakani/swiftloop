@@ -79,6 +79,8 @@ export const createTeam = async (
       email: teamLeadId,
       teams: [{ name: teamName, id: teamId, accepted: true }],
       name: teamName,
+      tasks: [],
+      standups: [],
     });
 
     setHasTeam(true);
@@ -152,7 +154,7 @@ export const addTeamMember = async (
 export const createTask = async (
   teamId,
   taskName,
-  dateTime,
+  dueDate,
   priority,
   assignedTo,
   createdBy
@@ -172,7 +174,7 @@ export const createTask = async (
       createdBy: createdBy,
       name: taskName,
       createdDate: new Date(),
-      dueDate: new Date(dateTime),
+      dueDate: dueDate,
       assignedTo: assignedTo,
       status: "pending",
       priority:priority,

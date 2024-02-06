@@ -18,7 +18,7 @@ const StandUp = ({ onClose, user, teams }) => {
   const handleSaveClick = async () => {
     try {
       const teamId = {teamId}; // Replace with your actual teamId
-      await createStandup(teams, taskName, description, assignedTo, dateTime, user);
+      await createStandup(teams, description, assignedTo, dateTime, user);
     } catch (error) {
       console.error('Error creating standup:', error.message);
     }

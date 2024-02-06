@@ -27,10 +27,6 @@ const Dashboard = () => {
     getUserDetails();
   }, []);
 
-  useEffect(() => {
-    console.log(teams)
-  }, [teams]);
-
   const getUserDetails = async () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -38,7 +34,6 @@ const Dashboard = () => {
 
         setUser(user.email);
         getTeams(setTeams, user.email);
-        console.log(user.email)
         // ...
       } else {
         // User is signed out
@@ -66,7 +61,7 @@ const Dashboard = () => {
 
           {/* Render component based on the selected tab */}
           {selectedTab === "Home" && <DashboardHome user={userData.firstName} teams={teams[0].id}/>}
-          {selectedTab === "Tasks" && <TaskManagement user={userEmail} teams={teams[0].name} />}
+          {selectedTab === "Tasks" && <TaskManagement user={userEmail} teams={teams[0]} />}
           {/* More tabs to be continue */}
         </div>
       </div>
