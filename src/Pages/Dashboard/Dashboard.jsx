@@ -16,7 +16,8 @@ import {
 const Dashboard = () => {
   const [selectedTab, setSelectedTab] = useState("Home");
   const [userEmail, setUser] = useState();
-  const [teams, setTeams] = useState([{ name: "Swift" }]);
+  const [teams, setTeams] = useState([{ name: "" }]);
+  const [userData, setUserData] = useState({});
 
   const handleTabClick = (tabName) => {
     setSelectedTab(tabName);
@@ -25,10 +26,6 @@ const Dashboard = () => {
   useEffect(() => {
     getUserDetails();
   }, []);
-
-  // useEffect(() => {
-  //   getTeams(setTeams, userEmail);
-  // }, [userEmail]);
 
   useEffect(() => {
     console.log(teams)
@@ -53,6 +50,10 @@ const Dashboard = () => {
   const getTeams = async(setTeams, user) => {
     const teamMemberDocRef = doc(db, "teamMember", user);
     const teamMemberDoc = await getDoc(teamMemberDocRef);
+
+    const userDocRef = doc(db, "users", user);
+    const userDoc = await getDoc(userDocRef);
+    setUserData(userDoc.data());
     setTeams(teamMemberDoc.data().teams);
   }
 
@@ -64,8 +65,8 @@ const Dashboard = () => {
           <Sidebar onTabClick={handleTabClick} />
 
           {/* Render component based on the selected tab */}
-          {selectedTab === "Home" && <DashboardHome user={userEmail} teams={teams[0].id}/>}
-          {selectedTab === "Tasks" && <TaskManagement teams={teams[0].name} />}
+          {selectedTab === "Home" && <DashboardHome user={userData.firstName} teams={teams[0].id}/>}
+          {selectedTab === "Tasks" && <TaskManagement user={userEmail} teams={teams[0].name} />}
           {/* More tabs to be continue */}
         </div>
       </div>

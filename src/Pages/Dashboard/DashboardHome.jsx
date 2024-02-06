@@ -46,7 +46,7 @@ function DashboardHome({user, teams}) {
           <div className="div-41" />
         </div>
         {/* Board Goes here */}
-        <Board />
+        <Board user={user} teams={teams} />
       </div>
     </div>
   );

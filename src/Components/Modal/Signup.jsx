@@ -29,7 +29,7 @@ const Signup = ({ email, setEmail }) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        setDoc(doc(db, "teamMember", user.email), {
+        setDoc(doc(db, "users", user.email), {
           firstName: firstName,
           lastName: lastName,
         });
@@ -114,14 +114,6 @@ const Signup = ({ email, setEmail }) => {
           />
         </div>
         <button className="btn2">Sign Up</button>
-        <button
-          className="btn2"
-          onClick={() => {
-            updateUserProfile();
-          }}
-        >
-          Update Profile
-        </button>
       </form>
       <div className="signup-with-g">
         <span>

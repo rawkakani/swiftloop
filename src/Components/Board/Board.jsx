@@ -3,7 +3,7 @@ import {db } from "../../Firebase/Firebase";
 import { collection, getDocs } from "firebase/firestore";
 import "./Board.css";
 
-const Board = ({ teamId, userId }) => {
+const Board = ({ teamId, userId, user, teams }) => {
   const dummyUser = {
     userId: "user123",
     userName: "John Doe",
@@ -115,10 +115,6 @@ const Board = ({ teamId, userId }) => {
   };
 
   const handleConfirmation = () => {
-    // Perform the update of task status based on the selected option
-    // For example, you can call an API or update the task in the state
-    // Once the update is successful, you can close the confirmation pop-up
-    // and reset the selected task and option
     console.log(`Updating task ${selectedTask.taskId} status to ${selectedOption}`);
     setSelectedTask(null);
     setSelectedOption(null);

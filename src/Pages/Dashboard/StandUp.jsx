@@ -93,7 +93,6 @@ const StandUp = ({ onClose }) => {
               />
             </div>
           </div>
-          3/
 
           <div className="notifications">
             <div className="notification">

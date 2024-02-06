@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 // import dummyData from "../../Data/DummyData";
 import "./AddTask.css";
 import { createTask } from "../../API/apiCalls";
+import { db } from "../../Firebase/Firebase";
+import { collection, getDocs } from "firebase/firestore";
 
-const AddTask = ({ onClose }) => {
+const AddTask = ({ onClose, user, teams }) => {
   const [isClosed, setIsClosed] = useState(false);
   const [taskName, setTaskName] = useState("");
   const [dateTime, setDateTime] = useState("");
@@ -47,7 +49,7 @@ const AddTask = ({ onClose }) => {
   const handleSaveClick = async (e) => {
     e.preventDefault();
     try {
-      await createTask(taskName, dateTime, priority, assignedTo);
+      await createTask(teams, taskName, dateTime, priority, assignedTo, user);
 
       // Close the modal
       handleCloseClick();
@@ -91,34 +93,13 @@ const AddTask = ({ onClose }) => {
 
           <div className="timing">
             <div className="date">
-              <label className="dateName">Date</label>
+              <label className="dateName">Date</label> <br />
               <input
-                type="date"
+                type="datetime-local"
                 name="dateTime"
                 value={dateTime}
                 onChange={(e) => setDateTime(e.target.value)}
-                placeholder="12/02/2022"
                 className="date-input"
-              />
-            </div>
-            <div className="start">
-              <label className="startName">Start</label>
-              <input
-                type="time"
-                defaultValue="11:00"
-                placeholder="11:00"
-                step="900"
-                className="start-input"
-              />
-            </div>
-            <div className="end">
-              <label className="endName">End</label>
-              <input
-                type="time"
-                placeholder="11:00"
-                step="900"
-                defaultValue="11:00"
-                className="end-input"
               />
             </div>
           </div>

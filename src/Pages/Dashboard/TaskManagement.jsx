@@ -6,7 +6,7 @@ import SearchBar from "../../Components/Searchbar/SearchBar";
 import AddTask from "./AddTask";
 import AddStandup  from "./StandUp";
 
-function TaskManagement({ teamId, taskName, dateTime, priority, assignedTo, teams }) {
+function TaskManagement({ teamId, taskName, dateTime, priority, assignedTo, teams, user }) {
   const [isAddTaskVisible, setAddTaskVisible] = useState(false);
   const [isAddStandupVisible, setAddStandupVisible] = useState(false);
 
@@ -76,7 +76,7 @@ function TaskManagement({ teamId, taskName, dateTime, priority, assignedTo, team
       </div>
 
       {/* Conditional rendering of AddTask component */}
-      {isAddTaskVisible && <AddTask onClose={handleAddTaskClose} teamId={teamId} />}
+      {isAddTaskVisible && <AddTask user={user} teams={teams} onClose={handleAddTaskClose} teamId={teamId} />}
       {isAddStandupVisible && <AddStandup onClose={handleAddStandupClose} teamId={teamId} />}
     </div>
   );

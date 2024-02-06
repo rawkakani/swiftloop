@@ -158,11 +158,11 @@ export const createTask = async (
   createdBy
 ) => {
   try {
-    // const teamDocRef = doc(db, "teams", teamId);
-    // const teamDoc = await getDoc(teamDocRef);
-    // if (!teamDoc.exists()) {
-    //   throw new Error("Team not found");
-    // }
+    const teamDocRef = doc(db, "teams", teamId);
+    const teamDoc = await getDoc(teamDocRef);
+    if (!teamDoc.exists()) {
+      throw new Error("Team not found");
+    }
 
     const taskId = uuidv4();
     const taskDocRef = doc(db, 'tasks', taskId);
@@ -174,13 +174,10 @@ export const createTask = async (
       createdDate: new Date(),
       dueDate: new Date(dateTime),
       assignedTo: assignedTo,
-      status: "BACKLOG",
+      status: "pending",
       priority:priority,
       teamId:teamId
     });
-
-    const teamDocRef = doc(db, 'teams', teamId);
-    const teamDoc = await getDoc(teamDocRef);
 
     if (!teamDoc.exists()) {
       throw new Error('Team not found');
