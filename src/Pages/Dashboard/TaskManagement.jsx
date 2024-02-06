@@ -6,7 +6,7 @@ import SearchBar from "../../Components/Searchbar/SearchBar";
 import AddTask from "./AddTask";
 import AddStandup  from "./StandUp";
 
-function TaskManagement({ teamId, taskName, dateTime, priority, assignedTo, user }) {
+function TaskManagement({ teamId, taskName, dateTime, priority, assignedTo, teams, user, assignies }) {
   const [isAddTaskVisible, setAddTaskVisible] = useState(false);
   const [isAddStandupVisible, setAddStandupVisible] = useState(false);
 
@@ -31,7 +31,7 @@ function TaskManagement({ teamId, taskName, dateTime, priority, assignedTo, user
       <div className="div-17">
         <div className="div-18">
           {/* Header goes here */}
-          <DashHeader user={user} />
+          <DashHeader teams={teams.name} />
           <div className="head-wrapper">
             <div className="div-25">Manage Tasks</div>
             <div className="task-buttons">
@@ -74,8 +74,8 @@ function TaskManagement({ teamId, taskName, dateTime, priority, assignedTo, user
       </div>
 
       {/* Conditional rendering of AddTask component */}
-      {isAddTaskVisible && <AddTask onClose={handleAddTaskClose} teamId={teamId} />}
-      {isAddStandupVisible && <AddStandup onClose={handleAddStandupClose} teamId={teamId} />}
+      {isAddTaskVisible && <AddTask user={user} teams={teams.id} assignies={assignies} onClose={handleAddTaskClose} teamId={teamId} />}
+      {isAddStandupVisible && <AddStandup user={user} teams={teams.id} onClose={handleAddStandupClose} teamId={teamId} />}
     </div>
   );
 }

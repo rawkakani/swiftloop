@@ -1,15 +1,24 @@
 .AddMain {
   position: absolute;
-  top: 0;
+  top: 0;}
+
+.add-task-container{
+  position: fixed;
   right: 0;
-  display: flex;
+  top: 0;
+  display: flex; /* Set display to flex to use flexbox properties */
   flex-direction: column;
   line-height: normal;
-  width: 28%;
-  z-index: 5;
+  width: 90%;
+  max-width: 500px;
   /* margin-top: 206px; */
   border: 0.6px solid whitesmoke;
+  /* inset: 10% 0 10% 0; */
+  background-color: rgb(39, 37, 49, 0.98);
+  margin: 20px;
+  padding: 20px;
 }
+
 @media (max-width: 991px) {
   .AddMain {
     width: 100%;
@@ -99,8 +108,19 @@ input {
 }
 .taskname .name-input {
   padding-left: 5px;
-  width: 400px;
+  width: 100%;
   margin-top: 12px;
+}
+
+.taskname textarea {
+  padding-left: 5px;
+  width: 100%;
+  background-color: #272531;
+  border: 1px #b7b7b7 solid;
+  border-radius: 5px;
+  color: #fff8;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .timing, .task-assign {
   display: flex;

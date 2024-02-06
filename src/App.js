@@ -4,6 +4,8 @@ import Dashboard from './Pages/Dashboard/Dashboard'
 import './App.css';
 import Autheticatation from './Pages/Home/Auth';
 import SignupPage from './Pages/Home/SignupPage';
+import  Teams from './Pages/Dashboard/fetch';
+import CreateTeamPage from './Pages/Home/CreateTeam';
 
 function App() {
 
@@ -15,6 +17,8 @@ function App() {
         <Route path="/signin" element={<Autheticatation />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/teams" element={<Teams />} />
+        <Route path="/createteam" element={<CreateTeamPage />} />
       </Routes>
     </Router>
   );

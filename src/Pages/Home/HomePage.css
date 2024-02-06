@@ -18,17 +18,32 @@
 
 .card {
     position: fixed;
-    width: 90%;
+    width: 97%;
     /* max-width: 400px; */
-    height: 90%;
+    height: 97%;
     background-color: #1F2025;
     border-radius: 10px;
-    inset: 5% !important;
+    inset: 1.5% !important;
     color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
+}
+
+.card2 {
+    position: fixed;
+    width: 90%;
+    height: 60%;
+    background-color: #1F2025;
+    border-radius: 10px;
+    inset: 20% 5% !important;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    justify-content: space-between;
 }
 
 .auth-form {
@@ -71,15 +86,20 @@
 }
 
 a {
-    color: #f84008;
+    color: #2F81B0;
     text-decoration: none;
 }
 
 @media screen and (min-width: 768px) {
     .card {
+        width: 70%;
+        height: 90%;
+        inset: 5% 15% !important;
+    }
+    .card2 {
         width: 60%;
-        height: 80%;
-        inset: 10% 20% !important;
+        height: 50%;
+        inset: 25% 20% !important;
     }
     
 }

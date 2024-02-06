@@ -1,19 +1,43 @@
-import React from "react";
+import React, { useState } from 'react';
 import DashHeader from "../../Components/Header/DashHeader";
-import Board from "../../Components/Board/Board"
+import Board from "../../Components/Board/Board";
 import SearchBar from "../../Components/Searchbar/SearchBar";
+// import { createTask } from "../../API/apiCalls";
+import AddTask from "./AddTask";
+import AddStandup  from "./StandUp";
 
-function DashboardHome({user, teams}) {
+function TaskManagement({ teamId, taskName, dateTime, priority, assignedTo, user }) {
+  const [isAddTaskVisible, setAddTaskVisible] = useState(false);
+  const [isAddStandupVisible, setAddStandupVisible] = useState(false);
+
+  const handleAddTaskClick = () => {
+    setAddTaskVisible(!isAddTaskVisible);
+  };
+
+  const handleAddTaskClose = () => {
+    setAddTaskVisible(false);
+  };
+
+  const handleAddStandupClick = () => {
+    setAddStandupVisible(!isAddStandupVisible);
+  };
+
+  const handleAddStandupClose = () => {
+    setAddStandupVisible(false);
+  };
+
   return (
     <div className="column-2">
       <div className="div-17">
         <div className="div-18">
           {/* Header goes here */}
-          <DashHeader user={user} teams={teams}/>
-          <div className="div-25">Welcome {user}</div>
-          <div className="div-26">
-            You have{" "}
-            <span style={{ color: "rgba(32, 91, 241, 1)" }}>2 new</span> tasks!
+          <DashHeader user={user} />
+          <div className="head-wrapper">
+            <div className="div-25">Manage Tasks</div>
+            <div className="task-buttons">
+              <button className="standUp" onClick={handleAddStandupClick} >+ Standup</button>
+              <button className='create-task' onClick={handleAddTaskClick}>+ New Task</button>
+            </div>
           </div>
         </div>
         <div className="div-27">
@@ -46,10 +70,14 @@ function DashboardHome({user, teams}) {
           <div className="div-41" />
         </div>
         {/* Board Goes here */}
-        <Board user={user} teams={teams} />
+        <Board />
       </div>
+
+      {/* Conditional rendering of AddTask component */}
+      {isAddTaskVisible && <AddTask onClose={handleAddTaskClose} teamId={teamId} />}
+      {isAddStandupVisible && <AddStandup onClose={handleAddStandupClose} teamId={teamId} />}
     </div>
   );
 }
 
-export default DashboardHome;
+export default TaskManagement;

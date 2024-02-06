@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+// import dummyData from "../../Data/DummyData";
 import "./AddTask.css";
 import { createTask } from "../../API/apiCalls";
+import { db } from "../../Firebase/Firebase";
+import { collection, getDocs, getDoc, doc } from "firebase/firestore";
 
-const AddTask = ({ onClose }) => {
+const AddTask = ({ onClose, user, teams, assignies }) => {
   const [isClosed, setIsClosed] = useState(false);
   const [taskName, setTaskName] = useState("");
   const [dateTime, setDateTime] = useState("");
   const [priority, setPriority] = useState("Critical");
   const [assignedTo, setAssignedTo] = useState("");
+  const [description, setDescription] = useState("");
+  const [tasks, setTasks] = useState([]);
+  
 
   const handleCloseClick = () => {
     setIsClosed(true);
@@ -17,9 +23,7 @@ const AddTask = ({ onClose }) => {
   const handleSaveClick = async (e) => {
     e.preventDefault();
     try {
-      // Call the function to create a task in Firestore
-      // await createTask(teamId, taskName, dateTime, priority, assignedTo);
-      await createTask(taskName, dateTime, priority, assignedTo);
+      await createTask(teams, taskName, dateTime, description, priority, assignedTo, user);
 
       // Close the modal
       handleCloseClick();
@@ -33,19 +37,23 @@ const AddTask = ({ onClose }) => {
   }
 
   return (
-    <div className="AddMain">
-      <div className="content">
-        <div className="close-x">
-          <p className="close" onClick={handleCloseClick}>
-            <span className="close-now">X</span>
-          </p>
-          <div className="heads">
-            <h1 className="main-head">Add Task</h1>
-            <small className="date-today">Today 02/02/2024</small>
-          </div>
-        </div>
+    <div className="add-task-container">
+      <div className="task-content">
 
-        <form className="form-content" onSubmit={(e) => {handleSaveClick(e)}}>
+
+
+      <div className="header-container" >
+        <div className="heading" > Add Task </div>
+        <div className="close-button" onClick={handleCloseClick} > X </div>
+      </div>
+
+
+        <form
+          className="form-content"
+          onSubmit={(e) => {
+            handleSaveClick(e);
+          }}
+        >
           <div className="taskname">
             <label className="lableName">Name the task</label>
             <input
@@ -57,32 +65,26 @@ const AddTask = ({ onClose }) => {
             />
           </div>
 
+          <div className="taskname">
+            <label className="labelName">Description</label>
+            <textarea
+              type="text"
+              name="description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="name-input"
+            />
+          </div>
+
           <div className="timing">
             <div className="date">
-              <label className="dateName">Date</label>
+              <label className="dateName">Date</label> <br />
               <input
-                type="text"
+                type="datetime-local"
                 name="dateTime"
                 value={dateTime}
                 onChange={(e) => setDateTime(e.target.value)}
-                placeholder="12/02/2022"
                 className="date-input"
-              />
-            </div>
-            <div className="start">
-              <label className="startName">Start</label>
-              <input
-                type="text"
-                placeholder="11:00 AM"
-                className="start-input"
-              />
-            </div>
-            <div className="end">
-              <label className="endName">End</label>
-              <input
-                type="text"
-                placeholder="13:00 AM"
-                className="end-input"
               />
             </div>
           </div>
@@ -96,10 +98,10 @@ const AddTask = ({ onClose }) => {
                 onChange={(e) => setPriority(e.target.value)}
                 className="selection"
               >
-                <option value="---">Select</option>
-                <option value="Number 1">Number 1</option>
-                <option value="Number 2">Number 2</option>
-                <option value="Number 3">Number 3</option>
+                <option value="Priority">Critical</option>
+                <option value="Priority">Medium</option>
+                <option value="Priority">Low</option>
+                
               </select>
             </div>
             <div className="Assign">
@@ -110,7 +112,11 @@ const AddTask = ({ onClose }) => {
                 onChange={(e) => setAssignedTo(e.target.value)}
                 className="selection"
               >
-                <option value={assignedTo}>Roy</option>
+                {assignies.map((assignee) => (
+                  <option key={assignee.member} value={assignee.member}>
+                    {assignee.member}
+                  </option>
+                ))}
               </select>
             </div>
           </div>

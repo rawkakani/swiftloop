@@ -24,7 +24,8 @@ const Sidebar = ({ onTabClick }) => {
           />
           <div className="div-8">Tasks and events</div>
         </div>
-        <div className="div-9">
+        <div>
+        {/* <div className="div-9">
           <img
             loading="lazy"
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/0f8be4b2d62066a8824d2161254fb86eeca49a5ced01d5491b36579101ace936?"
@@ -32,8 +33,8 @@ const Sidebar = ({ onTabClick }) => {
             alt = ""
           />
           <div className="div-10">Messages</div>
-        </div>
-        <div className="div-11">
+        </div> */}
+        {/* <div className="div-11">
           <img
             loading="lazy"
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/0b210f7583c9dbacb1a0b1c330064db434933c86e5dc2f887acff97e41556b0c?"
@@ -41,8 +42,8 @@ const Sidebar = ({ onTabClick }) => {
             alt = ""
           />
           <div className="div-12">My Teams</div>
-        </div>
-        <div className="div-13">
+        </div> */}
+        {/* <div className="div-13">
           <img
             loading="lazy"
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/2e1285df9e3d0fcc24198a6077629238fa39c891f02dcf885a3cf7ddb5a08f30?"
@@ -50,8 +51,8 @@ const Sidebar = ({ onTabClick }) => {
             alt = ""
           />
           <div className="div-14">Settings and Preferences</div>
-        </div>
-        <div className="div-15">
+        </div> */}
+        {/* <div className="div-15">
           <img
             loading="lazy"
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/0b210f7583c9dbacb1a0b1c330064db434933c86e5dc2f887acff97e41556b0c?"
@@ -59,6 +60,7 @@ const Sidebar = ({ onTabClick }) => {
             alt = ""
           />
           <div className="div-16">Team MVP1</div>
+        </div> */}
         </div>
       </div>
     </div>
