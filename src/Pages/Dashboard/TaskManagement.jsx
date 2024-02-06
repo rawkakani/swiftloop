@@ -6,7 +6,7 @@ import SearchBar from "../../Components/Searchbar/SearchBar";
 import AddTask from "./AddTask";
 import AddStandup  from "./StandUp";
 
-function TaskManagement({ teamId, taskName, dateTime, priority, assignedTo, user }) {
+function TaskManagement({ teamId, taskName, dateTime, priority, assignedTo, teams }) {
   const [isAddTaskVisible, setAddTaskVisible] = useState(false);
   const [isAddStandupVisible, setAddStandupVisible] = useState(false);
 
@@ -26,12 +26,14 @@ function TaskManagement({ teamId, taskName, dateTime, priority, assignedTo, user
     setAddStandupVisible(false);
   };
 
+  console.log(teams)
+
   return (
     <div className="column-2">
       <div className="div-17">
         <div className="div-18">
           {/* Header goes here */}
-          <DashHeader user={user} />
+          <DashHeader teams={teams} />
           <div className="head-wrapper">
             <div className="div-25">Manage Tasks</div>
             <div className="task-buttons">

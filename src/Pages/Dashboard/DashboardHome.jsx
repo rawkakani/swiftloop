@@ -3,13 +3,13 @@ import DashHeader from "../../Components/Header/DashHeader";
 import Board from "../../Components/Board/Board"
 import SearchBar from "../../Components/Searchbar/SearchBar";
 
-function DashboardHome({user}) {
+function DashboardHome({user, teams}) {
   return (
     <div className="column-2">
       <div className="div-17">
         <div className="div-18">
           {/* Header goes here */}
-          <DashHeader user={user}/>
+          <DashHeader user={user} teams={teams}/>
           <div className="div-25">Welcome {user}</div>
           <div className="div-26">
             You have{" "}

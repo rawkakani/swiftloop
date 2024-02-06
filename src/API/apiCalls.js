@@ -199,12 +199,9 @@ export const createTask = async (
 export const getCurrentUser = async (setUser) => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/auth.user
       const uid = user.uid;
 
       setUser(user.email)
-      console.log(user)
       // ...
     } else {
       // User is signed out
@@ -212,6 +209,15 @@ export const getCurrentUser = async (setUser) => {
     }
   });
 };
+
+export const getTeams = async (setTeams, userId) => {
+  const teamMemberRef = doc(db, "teamMember", userId);
+  const teamMemberDoc = await getDoc(teamMemberRef);
+  if (teamMemberDoc.exists()) {
+    setTeams(teamMemberDoc.data().teams);
+    console.log(teamMemberDoc.data().teams);
+  }
+}
 
 
 

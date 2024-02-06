@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Hero from "../../Components/Hero/Hero";
 import Header from "../../Components/Header/Header";
 import "./HomePage.css";
-import { signUp, createTeam, addTeamMember } from "../../API/apiCalls";
+import { signUp, createTeam, addTeamMember, getCurrentUser } from "../../API/apiCalls";
 import logo from "../../Assets/logo.svg";
 import Signup from "../../Components/Modal/Signup";
 import { Link } from "react-router-dom";
@@ -14,6 +14,7 @@ const CreateTeamPage = () => {
   const [hasTeam, setHasTeam] = useState(false);
   const [teamName, setTeamName] = useState("");
   const [teamId, setTeamId] = useState("");
+  const [user, setUser] = useState();
 
   const handleSubscribe = (e) => {
     e.preventDefault();
@@ -26,12 +27,16 @@ const CreateTeamPage = () => {
   };
 
   const handleCreateTeam = (teamName) => {
-    createTeam(teamName, email, setHasTeam, setTeamId);
+    createTeam(teamName, user, setHasTeam, setTeamId);
   };
 
   const handleAddTeamMember = (email, setEmail) => {
     addTeamMember(teamId, email, setEmail, teamName);
   };
+
+  useEffect(() => {
+    getCurrentUser(setUser);
+  }, []);
 
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(true);

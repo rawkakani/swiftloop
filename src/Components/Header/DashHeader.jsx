@@ -1,6 +1,7 @@
 import React from "react";
 
-const DashHeader = ({user}) => {
+const DashHeader = ({teams}) => {
+  console.log(teams)
   return (
     <div className="div-19">
       <img
@@ -11,7 +12,7 @@ const DashHeader = ({user}) => {
       />
       <div className="div-20">
         <div className="div-21">
-          <div className="div-22">{user}</div>
+          <div className="div-22">{teams}</div>
           <div className="div-23">Team Member</div>
         </div>
         <div className="div-24">A</div>
