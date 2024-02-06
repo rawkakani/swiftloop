@@ -7,11 +7,10 @@ import logo from "../../Assets/logo.svg";
 import Signup from "../../Components/Modal/Signup";
 import { Link } from "react-router-dom";
 import CreateTeam from "../../Components/Modal/CreateTeam";
+import AddTeam from "../../Components/AddTeam/AddTeam";
 
 const CreateTeamPage = () => {
   const [email, setEmail] = useState("");
-  const [error, setError] = useState(false);
-  const [isAccount, setIsAccount] = useState(false);
   const [hasTeam, setHasTeam] = useState(false);
   const [teamName, setTeamName] = useState("");
   const [teamId, setTeamId] = useState("");
@@ -21,9 +20,7 @@ const CreateTeamPage = () => {
     signUp(
       email,
       process.env.REACT_APP_DEFAULT_PASSWORD,
-      setError,
       setEmail,
-      setIsAccount
     );
     openModal();
   };
@@ -49,7 +46,7 @@ const CreateTeamPage = () => {
       <Hero
         email={email}
         setEmail={setEmail}
-        error={setError}
+        error={false}
         handleSubscribe={handleSubscribe}
       />
 
@@ -59,8 +56,14 @@ const CreateTeamPage = () => {
         <div className="modal-header">
           <img src={logo} alt="logo" />
         </div>
-          <CreateTeam teamName={teamName} setTeamName={setTeamName} handleCreateTeam={handleCreateTeam} />
+        {!hasTeam ? <>
+            <CreateTeam teamName={teamName} setTeamName={setTeamName} handleCreateTeam={handleCreateTeam} />
           <Link to="/signin">Skip</Link>
+          </>: <>
+          <AddTeam email={email} setEmail={setEmail} handleAddTeamMember={handleAddTeamMember} />
+          <Link to="/signin" className="btn-link">Done</Link>
+          </>}
+          
         </div>
 
         
