@@ -3,42 +3,16 @@ import React, { useState, useEffect } from "react";
 import "./AddTask.css";
 import { createTask } from "../../API/apiCalls";
 import { db } from "../../Firebase/Firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, getDoc, doc } from "firebase/firestore";
 
-const AddTask = ({ onClose, user, teams }) => {
+const AddTask = ({ onClose, user, teams, assignies }) => {
   const [isClosed, setIsClosed] = useState(false);
   const [taskName, setTaskName] = useState("");
   const [dateTime, setDateTime] = useState("");
   const [priority, setPriority] = useState("Critical");
   const [assignedTo, setAssignedTo] = useState("");
+  const [description, setDescription] = useState("");
   const [tasks, setTasks] = useState([]);
-  const [priorities, setPriorities] = useState([]);
-  const [assignies, setAssignies] = useState([]);
-
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, 'tasks'));
-        const fetchedTasks = querySnapshot.docs.map((doc) => doc.data());
-  
-        setTasks(fetchedTasks);
-  
-        const uniqueAssignies = [
-          ...new Set(fetchedTasks.map((assign) => assign.assignedTo)),
-        ];
-        setAssignies(uniqueAssignies);
-  
-        const uniquePriorities = [
-          ...new Set(fetchedTasks.map((task) => task.priority)),
-        ];
-        setPriorities(uniquePriorities);
-      } catch (error) {
-        console.error('Error fetching data:', error.message);
-      }
-    };
-  
-    getData();
-  }, []);
   
 
   const handleCloseClick = () => {
@@ -49,7 +23,7 @@ const AddTask = ({ onClose, user, teams }) => {
   const handleSaveClick = async (e) => {
     e.preventDefault();
     try {
-      await createTask(teams, taskName, dateTime, priority, assignedTo, user);
+      await createTask(teams, taskName, dateTime, description, priority, assignedTo, user);
 
       // Close the modal
       handleCloseClick();
@@ -91,6 +65,17 @@ const AddTask = ({ onClose, user, teams }) => {
             />
           </div>
 
+          <div className="taskname">
+            <label className="labelName">Description</label>
+            <textarea
+              type="text"
+              name="description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="name-input"
+            />
+          </div>
+
           <div className="timing">
             <div className="date">
               <label className="dateName">Date</label> <br />
@@ -113,12 +98,10 @@ const AddTask = ({ onClose, user, teams }) => {
                 onChange={(e) => setPriority(e.target.value)}
                 className="selection"
               >
-                <option value="">Select</option>
-                {priorities.map((p) => (
-                  <option key={p} value={p}>
-                    {p}
-                  </option>
-                ))}
+                <option value="Priority">Critical</option>
+                <option value="Priority">Medium</option>
+                <option value="Priority">Low</option>
+                
               </select>
             </div>
             <div className="Assign">
@@ -129,10 +112,9 @@ const AddTask = ({ onClose, user, teams }) => {
                 onChange={(e) => setAssignedTo(e.target.value)}
                 className="selection"
               >
-                <option value="">Select</option>
-                {assignies.map((a) => (
-                  <option key={a} value={a}>
-                    {a}
+                {assignies.map((assignee) => (
+                  <option key={assignee.member} value={assignee.member}>
+                    {assignee.member}
                   </option>
                 ))}
               </select>

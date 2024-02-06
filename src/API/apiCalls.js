@@ -73,14 +73,14 @@ export const createTeam = async (
       teamdLead: teamLeadId,
       members: [{ member: teamLeadId, accepted: true }],
       id: teamId,
+      tasks: [],
+      standups: [],
     });
 
     const memberRef = await setDoc(doc(db, "teamMember", teamLeadId), {
       email: teamLeadId,
       teams: [{ name: teamName, id: teamId, accepted: true }],
       name: teamName,
-      tasks: [],
-      standups: [],
     });
 
     setHasTeam(true);
@@ -155,6 +155,7 @@ export const createTask = async (
   teamId,
   taskName,
   dueDate,
+  description,
   priority,
   assignedTo,
   createdBy
@@ -176,6 +177,7 @@ export const createTask = async (
       createdDate: new Date(),
       dueDate: dueDate,
       assignedTo: assignedTo,
+      description: description,
       status: "pending",
       priority:priority,
       teamId:teamId
