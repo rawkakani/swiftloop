@@ -14,6 +14,7 @@ const CreateTeam = ({teamName, setTeamName, handleCreateTeam}) => {
           />
           <button
             type="button"
+            className="btn"
             onClick={() => {
               handleCreateTeam(teamName);
             }}

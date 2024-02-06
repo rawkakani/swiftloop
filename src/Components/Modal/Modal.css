@@ -54,11 +54,12 @@
 }
 
 .btn {
-    padding: 20px;
+    padding: 13px 20px;
     background-color: #2F80ED;
     color: #fff;
     border: none;
     font-weight: bold;
+    border-radius: 9px;
 }
 
 .flex-half {
@@ -71,6 +72,15 @@
 .flex-half div {
     width: 48%;
 
+}
+
+.AddTeam {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    align-items: center;
+    width: 80%;
 }
 
 @media screen and (min-width: 768px) {

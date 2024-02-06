@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import "./Modal.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../Firebase/Firebase";
 import {
   createUserWithEmailAndPassword,
   sendEmailVerification,
   updateProfile,
 } from "@firebase/auth";
+import { db } from "../../Firebase/Firebase";
+import {
+  doc,
+  setDoc,
+} from "firebase/firestore";
 
 const Signup = ({ email, setEmail }) => {
+  const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
@@ -23,12 +29,13 @@ const Signup = ({ email, setEmail }) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        // sendEmailVerification(auth.currentUser).then(() => {
-        //   alert(
-        //     "Account created successfully, Kindly check your email and verify it using the link sent"
-        //   );
-        // });
-        // ...
+        setDoc(doc(db, "teamMember", user.email), {
+          firstName: firstName,
+          lastName: lastName,
+        });
+        sendEmailVerification(auth.currentUser).then(() => {
+          navigate("/createteam");
+        });
       })
       .catch((error) => {
         const errorCode = error.code;
