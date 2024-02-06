@@ -104,25 +104,45 @@ const Board = ({ teamId, userId }) => {
 
   const [selectedTask, setSelectedTask] = useState(null);
   const [selectedOption, setSelectedOption] = useState(null);
+  const [isPopupVisible, setPopupVisibility] = useState(false);
 
   const handleActionButtonClick = (task) => {
-    setSelectedTask(task);
-    setSelectedOption(null); // Reset selected option when button is clicked
+    console.log("Button clicked for task:", task);
+    setSelectedTask(task.taskId);
+    setPopupVisibility(true);
+    // rest of the code
   };
 
-  const handleOptionSelect = (option) => {
+
+
+  const handleOptionClick = (option) => {
+    console.log(selectedOption)
     setSelectedOption(option);
+
+    const isConfirmed = window.confirm(
+      `${dummyUser.userName} Confirm that you want to send ${selectedTask} to Status ${selectedOption}`
+    );
+
+    if (isConfirmed) {
+      // Handle confirmation logic here if needed
+      console.log("Confirmed!");
+      handleConfirmation();
+    } else {
+      console.log("nothing!");
+    }
+
+
+    
+    
   };
 
   const handleConfirmation = () => {
-    // Perform the update of task status based on the selected option
-    // For example, you can call an API or update the task in the state
-    // Once the update is successful, you can close the confirmation pop-up
-    // and reset the selected task and option
-    console.log(`Updating task ${selectedTask.taskId} status to ${selectedOption}`);
+    // Display an alert to inform the user about the status change
+    alert(`Changing status of task ${selectedTask} to ${selectedOption}`);
     setSelectedTask(null);
-    setSelectedOption(null);
+    setPopupVisibility(false);
   };
+
 
   const renderTasksByStatus = (status) => {
     const filteredTasks = dummyTasks.filter(
@@ -130,6 +150,7 @@ const Board = ({ teamId, userId }) => {
     );
 
     return filteredTasks.map((task) => (
+      <>
       <div key={task.taskId} className="task-card">
         <div className="task-card-header">
           <div>
@@ -150,22 +171,29 @@ const Board = ({ teamId, userId }) => {
           <div> {task.priority} </div>
         </div>
 
-
-        {selectedTask === task && (
-          <div className="confirmation-popup">
-            <p>Select an option:</p>
-            <select value={selectedOption} onChange={(e) => handleOptionSelect(e.target.value)}>
-              <option value="backlog">Move to Backlog</option>
-              <option value="closed">Close Task</option>
-            </select>
-            <button onClick={handleConfirmation}>Confirm</button>
-          </div>
-        )}
-     
       </div>
 
 
+      {isPopupVisible && selectedTask === task.taskId &&  (
+            <div className="confirmation-popup">
+          
+            <button onClick={() => handleOptionClick("backlog")}>
+              Backlog
+            </button> <br/>
+            <button onClick={() => handleOptionClick("pending")}>
+              Todo
+            </button> <br/>
+            <button onClick={() => handleOptionClick("wip")}>
+               In Progress
+            </button>  <br/>
+            <button onClick={() => handleOptionClick("closed")}>
+              Closed
+            </button>  <br/>
+          </div>
+          )}
+       
 
+</>
 
     ));
   };
