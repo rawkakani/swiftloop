@@ -77,7 +77,7 @@ function TaskManagement({ teamId, taskName, dateTime, priority, assignedTo, team
 
       {/* Conditional rendering of AddTask component */}
       {isAddTaskVisible && <AddTask user={user} teams={teams} onClose={handleAddTaskClose} teamId={teamId} />}
-      {isAddStandupVisible && <AddStandup onClose={handleAddStandupClose} teamId={teamId} />}
+      {isAddStandupVisible && <AddStandup user={user} teams={teams} onClose={handleAddStandupClose} teamId={teamId} />}
     </div>
   );
 }

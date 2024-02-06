@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./StandUp.css";
 import { createStandup } from "../../API/apiCalls";
 
-const StandUp = ({ onClose }) => {
+const StandUp = ({ onClose, user, teams }) => {
   const [sendNotification, setSendNotification] = useState(false);
   const [isClosed, setIsClosed] = useState(false);
   const [standupName, setStandupName] = useState("");
@@ -18,7 +18,7 @@ const StandUp = ({ onClose }) => {
   const handleSaveClick = async () => {
     try {
       const teamId = {teamId}; // Replace with your actual teamId
-      await createStandup(teamId, taskName, description, assignedTo, dateTime, createdBy);
+      await createStandup(teams, taskName, description, assignedTo, dateTime, user);
     } catch (error) {
       console.error('Error creating standup:', error.message);
     }
